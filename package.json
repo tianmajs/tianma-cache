@@ -1,0 +1,27 @@
+{
+  "name": "tianma-cache",
+  "version": "0.1.0",
+  "description": "tianma-cache",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tianmajs/tianma-cache"
+  },
+  "keywords": [
+    "tianma",
+    "tianma-cache"
+  ],
+  "author": "xshong2008",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tianmajs/tianma-cache/issues"
+  },
+
+  "devDependencies": {
+    "lru-cache": "*"
+  },
+  "homepage": "https://github.com/tianmajs/tianma-cache"
+}
