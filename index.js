@@ -1,6 +1,7 @@
 var LRU = require('lru-cache'),
 
     tianma_cache = function(maxAge) {
+        maxAge = maxAge || 1800;
         var lru = LRU({
             max: 1024,
             maxAge: maxAge
@@ -8,8 +9,7 @@ var LRU = require('lru-cache'),
 
         function checkCache(req, res) {
             var ret = true,
-                key = req.url(),
-                entry = lru.get(key),
+                entry = lru.get(req.url()),
                 now = Date.now(),
 
                 ims = new Date(req.head('if-modified-since') || 0),
@@ -17,9 +17,9 @@ var LRU = require('lru-cache'),
                 // as new as freshly baked break.
                 lm = new Date(entry ? entry.headers['last-modified'] : now);
 
-            if (ifModifiedSince >= lm) {
+            if (ims >= lm) {
                 res.status(304)
-                    .head('last-modified', lm)();
+                    .head('last-modified', lm);
             } else if (entry) {
                 res.status(200)
                     .head(entry.headers)
@@ -50,7 +50,7 @@ var LRU = require('lru-cache'),
                     });
 
                     //set cache
-                    lru.set(key, {
+                    lru.set(req.url(), {
                         headers: res.head(),
                         body: res.data()
                     });
@@ -60,5 +60,6 @@ var LRU = require('lru-cache'),
             }
         };
     };
+
 
 module.exports = tianma_cache;
