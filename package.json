@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "description": "tianma-cache",
   "main": "index.js",
-  "scripts": {
-    "test": "test"
-  },
+  "author": "xshong2008",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/tianmajs/tianma-cache"
@@ -14,14 +13,20 @@
     "tianma",
     "tianma-cache"
   ],
-  "author": "xshong2008",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/tianmajs/tianma-cache/issues"
   },
-
   "devDependencies": {
-    "lru-cache": "*"
+    "tianma": "~1.0.0-r0",
+    "lru-cache": "*",
+    "mocha": "~1.18.2",
+    "supertest": "~0.15.0"
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "scripts": {
+    "test": "mocha --harmony"
   },
   "homepage": "https://github.com/tianmajs/tianma-cache"
 }
