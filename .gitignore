@@ -1,4 +1,6 @@
 node_modules/
-.idea
-.DS_Store
-.running
+**/.*
+!.gitignore
+!.npmignore
+!.travis.yml
+!.editorconfig
