@@ -18,13 +18,6 @@ function createApp() {
 describe('tianma-cache()', function() {
     var app = createApp().run;
 
-    /*it('should response status 200', function(done) {
-        reqApp
-            .get('/index.js')
-            .expect(200)
-            .end(done);
-    });*/
-
     it('should response status 304', function(done) {
         var reqApp = request(app),
             now = new Date(Date.now() + 10000);
