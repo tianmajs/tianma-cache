@@ -4,7 +4,7 @@ var LRU = require('lru-cache'),
         maxAge = maxAge || 1800;
         var lru = LRU({
             max: 1024,
-            maxAge: maxAge
+            maxAge: maxAge //缓存时效，单位毫秒。
         });
 
         function checkCache(req, res) {
