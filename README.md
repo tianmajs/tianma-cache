@@ -18,7 +18,7 @@
 
 ## 使用缓存中间件，并配置失效实现
     tianma()
-        .use(tianma_cache())
+        .use(tianma_cache(3600))
 
 
 
