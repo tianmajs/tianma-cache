@@ -5,7 +5,7 @@ var request = require('supertest');
 var tianma = require('tianma');
 var cache = require('..');
 var tianma_static = require('./tianma_static');
-var maxAge = 10 * 1000;
+var maxAge = 10;
 
 function createApp() {
     var app = tianma(9080);
@@ -26,7 +26,7 @@ describe('tianma-cache()', function() {
             .get('/index.js')
             .expect(200)
             .set('if-modified-since', now)
-            .expect('cache-control', 'max-age=' + maxAge / 1000);
+            .expect('cache-control', 'max-age=' + maxAge);
         // .end(done);
 
         reqApp

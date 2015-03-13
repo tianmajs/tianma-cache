@@ -11,14 +11,14 @@
 
 ## 使用
 
-### 使用缓存中间件，默认时效时间为1800ms
+### 使用缓存中间件，默认时效时间为30分钟
     tianma()
         .use(tianma_cache())
 
 
 ### 使用缓存中间件，并配置失效时间
     tianma()
-        .use(tianma_cache(10*1000))
+        .use(tianma_cache(10))
 
 
 
