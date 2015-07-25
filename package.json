@@ -1,32 +1,31 @@
 {
-  "name": "tianma-cache",
-  "version": "1.0.0",
-  "description": "tianma-cache",
-  "main": "index.js",
-  "author": "xshong2008",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tianmajs/tianma-cache"
-  },
-  "keywords": [
-    "tianma",
-    "tianma-cache"
-  ],
-  "bugs": {
-    "url": "https://github.com/tianmajs/tianma-cache/issues"
-  },
-  "devDependencies": {
-    "tianma": "~1.0.0-r0",
-    "lru-cache": "*",
-    "mocha": "~1.18.2",
-    "supertest": "~0.15.0"
-  },
-  "engines": {
-    "node": ">=0.12.0"
-  },
-  "scripts": {
-    "test": "mocha --harmony"
-  },
-  "homepage": "https://github.com/tianmajs/tianma-cache"
+    "name": "tianma-cache",
+    "description": "Cache middleware for Tianma",
+    "version": "1.0.0",
+    "author": "Nanqiao Deng <nqdeng@gmail.com>",
+    "keywords": [
+        "cache",
+        "middleware",
+        "tianma"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tianmajs/tianma-cache.git"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "lru-cache": "~2.5.0"
+    },
+    "devDependencies": {
+        "tianma": "~1.0.0",
+        "mocha": "~2.2.5",
+        "supertest": "~0.15.0"
+    },
+    "engines": {
+        "node": ">=0.12.0"
+    },
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha --harmony"
+    }
 }

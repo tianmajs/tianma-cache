@@ -1,9 +1,8 @@
 # tianma-cache
 
-![build status](https://travis-ci.org/tianmajs/tianma-mount.svg?branch=master)
+![build status](https://travis-ci.org/tianmajs/tianma-cache.svg?branch=master)
 
-天马静态资源服务的缓存中间件
-
+将后续模块对GET请求的200响应缓存起来。在缓存有效期内，如果再次有URL相同的GET请求到达，直接返回缓存内容。
 
 ## 安装
 
@@ -11,16 +10,32 @@
 
 ## 使用
 
-### 使用缓存中间件，默认时效时间为30分钟
-    tianma()
-        .use(tianma_cache())
+缓存有效期默认为`1800`秒。
 
+    var tianma = require('tianma');
 
-### 使用缓存中间件，并配置失效时间
-    tianma()
-        .use(tianma_cache(10))
+    tianma(8080)
+        .cache()
+        .use(function *(next) {
+            this.response.data(Math.random());
+        });
 
+上例的执行结果如下：
 
+    $ curl http://127.0.0.1:8080/x.js
+    0.9272267003543675
+    $ curl http://127.0.0.1:8080/x.js      # 同样的GET请求，命中缓存。
+    0.9272267003543675
+    $ curl http://127.0.0.1:8080/y.js
+    0.1384759375983405
+
+另外，也可以指定缓存有效期（单位为`秒`）。
+
+    var tianma = require('tianma');
+
+    tianma(8080)
+        .cache(3600)
+        .use(middleware);
 
 ## 授权协议
 
